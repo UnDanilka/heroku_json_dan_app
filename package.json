@@ -1,0 +1,15 @@
+{
+  "name": "heroku_json_dan_app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "engines": {
+    "node": "14.17.5"
+  }
+}
