@@ -1,24 +1,12 @@
-const express = require("express");
-const importData = require("./db.json");
-const cors = require("cors");
+const jsonServer = require("json-server");
+const server = jsonServer.create();
+const router = jsonServer.router("db.json");
+const middlewares = jsonServer.defaults();
+const port = process.env.PORT || 8000;
 
-const app = express();
+server.use(middlewares);
+server.use(router);
 
-app.use(
-  cors({
-    origin: "*",
-  })
-);
-
-let port = process.env.PORT || 8000;
-
-app.get("/", (req, res) => {
-  res.send("Hello Dan");
-});
-app.get("/todos", (req, res) => {
-  res.send(importData);
-});
-
-app.listen(port, () => {
-  console.log(`listening on port${port}`);
+server.listen(port, () => {
+  console.log("server is running");
 });
